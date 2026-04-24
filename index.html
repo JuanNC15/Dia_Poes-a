@@ -5,699 +5,159 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
   <meta name="theme-color" content="#ece2c8"/>
   <title>Banquete de la Poesía · FET Neiva</title>
-
-  <!-- Great Vibes = script brush idéntico al "Banquete" del afiche          -->
-  <!-- Playfair Display = serif bold italic para "Poesía"                    -->
-  <!-- Dancing Script = cursiva liviana para "de la" y "Celebremos el"       -->
-  <!-- Lato = UI sans-serif                                                   -->
-  <!-- Cormorant Garamond = cuerpo de los poemas                             -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@1,700;1,900&family=Dancing+Script:wght@400;600&family=Lato:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400;1,600&display=swap" rel="stylesheet"/>
-
   <style>
-  /* ================================================================
-     CUSTOM PROPERTIES
-  ================================================================ */
   :root{
-    /* Paleta exacta del afiche */
-    --cream:        #ece2c8;
-    --cream-light:  #f4eddb;
-    --cream-dark:   #dfd4b4;
-    --green-bright: #3aaa4e;   /* "Banquete" script */
-    --green-deep:   #1a4d2e;   /* FET logo, "Poesía", titulares */
-    --green-mid:    #2a7040;   /* acentos medios */
-    --green-pale:   #d6eddc;   /* chips fondo */
-    --green-text:   #14391f;   /* texto oscuro sobre claro */
-    --bark:         #6b4523;   /* texto secundario cálido */
-    --bark-light:   #9a7040;
-    --gold:         #c09028;
-    --white-card:   #faf6ec;
-    --shadow-g:     rgba(26,77,46,.15);
-
-    /* Tipografías */
-    --f-script:  'Great Vibes',    cursive;
-    --f-cursive: 'Dancing Script', cursive;
-    --f-display: 'Playfair Display', Georgia, serif;
-    --f-poem:    'Cormorant Garamond', Georgia, serif;
-    --f-ui:      'Lato', system-ui, sans-serif;
+    --cream:#ece2c8;--cream-light:#f4eddb;--cream-dark:#dfd4b4;
+    --green-bright:#3aaa4e;--green-deep:#1a4d2e;--green-mid:#2a7040;
+    --green-pale:#d6eddc;--green-text:#14391f;--bark:#6b4523;
+    --bark-light:#9a7040;--gold:#c09028;--white-card:#faf6ec;
+    --shadow-g:rgba(26,77,46,.15);
+    --f-script:'Great Vibes',cursive;--f-cursive:'Dancing Script',cursive;
+    --f-display:'Playfair Display',Georgia,serif;
+    --f-poem:'Cormorant Garamond',Georgia,serif;
+    --f-ui:'Lato',system-ui,sans-serif;
   }
-
-  /* ================================================================
-     RESET
-  ================================================================ */
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-
-  /* ================================================================
-     BODY — fondo pergamino con textura
-  ================================================================ */
   body{
-    min-height:100dvh;
-    font-family:var(--f-ui);
-    color:var(--green-deep);
+    min-height:100dvh;font-family:var(--f-ui);color:var(--green-deep);
     background-color:var(--cream);
-    /* Textura de papel granulado (SVG feTurbulence inline) */
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    overflow-x:hidden;
-    position:relative;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    display:flex;flex-direction:column;align-items:center;overflow-x:hidden;position:relative;
   }
-
-  /* Texto manuscrito inclinado de fondo — igual al afiche */
   body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    z-index:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='420'%3E%3Ctext x='-20' y='55'  font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.055' transform='rotate(-14,260,210)'%3Ethat do have this feeling commence approach the real do have%3C/text%3E%3Ctext x='-20' y='110' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.045' transform='rotate(-14,260,210)'%3Eleaves to that the metaphorical have that per feeling commence%3C/text%3E%3Ctext x='-20' y='165' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.045' transform='rotate(-14,260,210)'%3Ecaminante no hay camino se hace camino al andar al andar%3C/text%3E%3Ctext x='-20' y='220' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04'  transform='rotate(-14,260,210)'%3Eyo soy un hombre sincero de donde crece la palma — poesia eres tu%3C/text%3E%3Ctext x='-20' y='275' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04'  transform='rotate(-14,260,210)'%3Eque es poesia dices mientras clavas en mi pupila tu pupila azul%3C/text%3E%3Ctext x='-20' y='330' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04'  transform='rotate(-14,260,210)'%3Ecultivo una rosa blanca en julio como en enero para el amigo sincero%3C/text%3E%3Ctext x='-20' y='385' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04'  transform='rotate(-14,260,210)'%3Epuedo escribir los versos mas tristes esta noche el viento de la noche%3C/text%3E%3C/svg%3E");
+    content:'';position:fixed;inset:0;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='420'%3E%3Ctext x='-20' y='55' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.055' transform='rotate(-14,260,210)'%3Eque es poesia dices mientras clavas en mi pupila tu pupila azul%3C/text%3E%3Ctext x='-20' y='110' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.045' transform='rotate(-14,260,210)'%3Ecaminante no hay camino se hace camino al andar al andar%3C/text%3E%3Ctext x='-20' y='165' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.045' transform='rotate(-14,260,210)'%3Ela vida es un reloj que nunca se detiene un viaje de luz%3C/text%3E%3Ctext x='-20' y='220' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04' transform='rotate(-14,260,210)'%3Eel amor es algo lindo que se siente sin pensar%3C/text%3E%3Ctext x='-20' y='275' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04' transform='rotate(-14,260,210)'%3Eentre libros y suenos caminan callados ojos brillantes%3C/text%3E%3Ctext x='-20' y='330' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04' transform='rotate(-14,260,210)'%3Etus ojos dos luceros que guian mi camino%3C/text%3E%3Ctext x='-20' y='385' font-family='Georgia' font-size='13' fill='%231a4d2e' opacity='0.04' transform='rotate(-14,260,210)'%3Eel futuro se escribe con cada camino%3C/text%3E%3C/svg%3E");
     pointer-events:none;
   }
-
-  /* Partículas canvas */
-  #particles{
-    position:fixed;inset:0;z-index:0;pointer-events:none;
-  }
-
-  /* ================================================================
-     LAYOUT WRAPPER
-  ================================================================ */
-  .page{
-    position:relative;z-index:1;
-    width:100%;max-width:480px;
-    min-height:100dvh;
-    padding:0 0 72px;
-    display:flex;flex-direction:column;align-items:center;
-  }
-
-  /* ================================================================
-     CABECERA PRINCIPAL
-  ================================================================ */
-  header{
-    width:100%;
-    background:var(--cream-light);
-    border-bottom:3px solid var(--green-deep);
-    padding:20px 22px 24px;
-    position:relative;
-    overflow:hidden;
-  }
-
-  /* Mancha verde decorativa fondo header (como el collage del afiche) */
-  header::after{
-    content:'';
-    position:absolute;
-    right:-30px;top:-30px;
-    width:220px;height:220px;
-    border-radius:50%;
-    background:radial-gradient(circle at 40% 40%,
-      rgba(58,170,78,.13) 0%,
-      rgba(26,77,46,.07) 50%,
-      transparent 70%);
-    pointer-events:none;
-  }
-
-  /* ── LOGO FET ── */
-  .fet-logo{
-    display:inline-flex;align-items:stretch;
-    margin-bottom:22px;
-    border:2px solid var(--green-deep);
-    border-radius:2px;
-    overflow:hidden;
-    box-shadow:2px 3px 10px rgba(26,77,46,.2);
-  }
-
-  .fet-box{
-    background:var(--green-deep);
-    padding:8px 12px;
-    display:flex;align-items:center;justify-content:center;
-  }
-
-  .fet-mono{
-    background:#fff;
-    color:var(--green-deep);
-    font-family:var(--f-ui);
-    font-weight:900;
-    font-size:22px;
-    letter-spacing:-1.5px;
-    padding:2px 8px;
-    line-height:1;
-    border-radius:1px;
-  }
-
-  .fet-text{
-    background:var(--green-deep);
-    padding:6px 14px 6px 0;
-    display:flex;flex-direction:column;justify-content:center;
-    border-left:1px solid rgba(255,255,255,.2);
-  }
-
-  .fet-text strong{
-    font-family:var(--f-ui);font-weight:700;
-    font-size:9.5px;letter-spacing:1px;text-transform:uppercase;
-    color:#fff;line-height:1.6;
-  }
-
-  .fet-text small{
-    font-family:var(--f-ui);font-weight:300;
-    font-size:8px;letter-spacing:.4px;
-    color:rgba(255,255,255,.65);
-  }
-
-  /* ── BLOQUE TÍTULO — réplica exacta del afiche ── */
-  .title-block{
-    position:relative;
-    padding-right:40px; /* espacio para ícono libro */
-  }
-
-  /* Ícono libro (SVG inline, igual al del afiche) */
-  .book-icon{
-    position:absolute;
-    top:-8px;right:0;
-    width:52px;height:52px;
-    opacity:.75;
-  }
-
-  /* "Banquete" — Great Vibes, verde brillante, MUY grande */
-  .t-banquete{
-    font-family:var(--f-script);
-    font-size:clamp(62px, 17vw, 80px);
-    line-height:.9;
-    color:var(--green-bright);
-    display:block;
-    /* Sombra sutil para profundidad, igual al afiche */
-    text-shadow:
-      1px 2px 0 rgba(255,255,255,.5),
-      2px 4px 8px rgba(26,77,46,.15);
-    letter-spacing:-1px;
-  }
-
-  /* "de la" — Dancing Script, pequeño, verde oscuro */
-  .t-dela{
-    font-family:var(--f-cursive);
-    font-size:clamp(22px, 6vw, 28px);
-    font-weight:400;
-    color:var(--green-deep);
-    display:block;
-    line-height:1;
-    margin-top:-4px;
-    margin-left:4px;
-    letter-spacing:.5px;
-  }
-
-  /* "Poesía" — Playfair Display Bold Italic, verde oscuro, enorme */
-  .t-poesia{
-    font-family:var(--f-display);
-    font-size:clamp(54px, 15vw, 70px);
-    font-weight:900;
-    font-style:italic;
-    color:var(--green-deep);
-    display:block;
-    line-height:.92;
-    margin-top:-6px;
-    letter-spacing:-2px;
-    /* El texto se extiende ligeramente fuera, igual al afiche */
-    margin-left:-2px;
-  }
-
-  /* ── Subtítulo "Celebremos el Día del Idioma" ── */
-  .subtitle-block{
-    margin-top:14px;
-    padding-top:12px;
-    border-top:1px solid rgba(26,77,46,.2);
-  }
-
-  .t-celebremos{
-    font-family:var(--f-cursive);
-    font-size:clamp(17px,4.5vw,20px);
-    font-weight:400;
-    color:var(--bark);
-    display:block;
-    line-height:1.2;
-    letter-spacing:.3px;
-  }
-
-  .t-dia{
-    font-family:var(--f-ui);
-    font-size:clamp(18px,5.5vw,22px);
-    font-weight:900;
-    color:var(--green-deep);
-    display:block;
-    line-height:1.15;
-    letter-spacing:.2px;
-    text-transform:uppercase;
-  }
-
-  /* ── Descripción del evento ── */
-  .event-desc{
-    margin-top:14px;
-    font-family:var(--f-ui);
-    font-size:13.5px;
-    font-weight:400;
-    color:var(--green-text);
-    line-height:1.65;
-  }
-
+  #particles{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  .page{position:relative;z-index:1;width:100%;max-width:480px;min-height:100dvh;padding:0 0 72px;display:flex;flex-direction:column;align-items:center;}
+  header{width:100%;background:var(--cream-light);border-bottom:3px solid var(--green-deep);padding:20px 22px 24px;position:relative;overflow:hidden;}
+  header::after{content:'';position:absolute;right:-30px;top:-30px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(58,170,78,.13) 0%,rgba(26,77,46,.07) 50%,transparent 70%);pointer-events:none;}
+  .fet-logo{display:inline-flex;align-items:stretch;margin-bottom:22px;border:2px solid var(--green-deep);border-radius:2px;overflow:hidden;box-shadow:2px 3px 10px rgba(26,77,46,.2);}
+  .fet-box{background:var(--green-deep);padding:8px 12px;display:flex;align-items:center;justify-content:center;}
+  .fet-mono{background:#fff;color:var(--green-deep);font-family:var(--f-ui);font-weight:900;font-size:22px;letter-spacing:-1.5px;padding:2px 8px;line-height:1;border-radius:1px;}
+  .fet-text{background:var(--green-deep);padding:6px 14px 6px 0;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,.2);}
+  .fet-text strong{font-family:var(--f-ui);font-weight:700;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:#fff;line-height:1.6;}
+  .fet-text small{font-family:var(--f-ui);font-weight:300;font-size:8px;letter-spacing:.4px;color:rgba(255,255,255,.65);}
+  .title-block{position:relative;padding-right:40px;}
+  .book-icon{position:absolute;top:-8px;right:0;width:52px;height:52px;opacity:.75;}
+  .t-banquete{font-family:var(--f-script);font-size:clamp(62px,17vw,80px);line-height:.9;color:var(--green-bright);display:block;text-shadow:1px 2px 0 rgba(255,255,255,.5),2px 4px 8px rgba(26,77,46,.15);letter-spacing:-1px;}
+  .t-dela{font-family:var(--f-cursive);font-size:clamp(22px,6vw,28px);font-weight:400;color:var(--green-deep);display:block;line-height:1;margin-top:-4px;margin-left:4px;letter-spacing:.5px;}
+  .t-poesia{font-family:var(--f-display);font-size:clamp(54px,15vw,70px);font-weight:900;font-style:italic;color:var(--green-deep);display:block;line-height:.92;margin-top:-6px;letter-spacing:-2px;margin-left:-2px;}
+  .subtitle-block{margin-top:14px;padding-top:12px;border-top:1px solid rgba(26,77,46,.2);}
+  .t-celebremos{font-family:var(--f-cursive);font-size:clamp(17px,4.5vw,20px);font-weight:400;color:var(--bark);display:block;line-height:1.2;letter-spacing:.3px;}
+  .t-dia{font-family:var(--f-ui);font-size:clamp(18px,5.5vw,22px);font-weight:900;color:var(--green-deep);display:block;line-height:1.15;letter-spacing:.2px;text-transform:uppercase;}
+  .event-desc{margin-top:14px;font-family:var(--f-ui);font-size:13.5px;font-weight:400;color:var(--green-text);line-height:1.65;}
   .event-desc strong{font-weight:700;}
-
-  /* ── Chips de información ── */
-  .info-list{
-    margin-top:16px;
-    display:flex;flex-direction:column;gap:10px;
-  }
-
-  .info-row{
-    display:flex;align-items:center;gap:10px;
-  }
-
-  .info-icon{
-    width:34px;height:34px;
-    border-radius:50%;
-    background:var(--green-bright);
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-    font-size:15px;
-    box-shadow:0 2px 6px rgba(58,170,78,.35);
-  }
-
-  .info-text-wrap{line-height:1.3;}
-  .info-label{
-    font-family:var(--f-ui);font-weight:700;font-size:13.5px;
-    color:var(--green-deep);display:block;
-  }
-  .info-value{
-    font-family:var(--f-ui);font-weight:400;font-size:13px;
-    color:var(--bark);display:block;
-  }
-
-  /* ── Franja decorativa tricolor inferior header ── */
-  .header-stripe{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    height:4px;
-    background:linear-gradient(90deg,
-      var(--green-deep) 0%,var(--green-deep) 38%,
-      #f2c200 38%,#f2c200 52%,
-      var(--green-bright) 52%,var(--green-bright) 100%);
-  }
-
-  /* ================================================================
-     DECORACIÓN FLORAL (CSS puro — evoca el collage del afiche)
-  ================================================================ */
-  .floral-accent{
-    width:100%;height:28px;
-    position:relative;
-    display:flex;align-items:center;justify-content:center;
-    margin:22px 0 0;
-    gap:0;
-    overflow:visible;
-  }
-
-  .floral-accent::before,
-  .floral-accent::after{
-    content:'';
-    flex:1;height:1px;
-    background:linear-gradient(to right, transparent, rgba(26,77,46,.35));
-  }
-
-  .floral-accent::after{
-    background:linear-gradient(to left, transparent, rgba(26,77,46,.35));
-  }
-
-  .floral-center{
-    font-size:20px;
-    color:var(--green-bright);
-    padding:0 10px;
-    line-height:1;
-    /* Sombra floral */
-    filter:drop-shadow(0 1px 2px rgba(26,77,46,.2));
-  }
-
-  /* ================================================================
-     TARJETA DEL POEMA
-  ================================================================ */
-  .poem-wrap{
-    width:100%;padding:0 18px;
-  }
-
-  .poem-card{
-    width:100%;
-    background:var(--white-card);
-    border-radius:2px;
-    position:relative;
-    overflow:hidden;
-    box-shadow:
-      0 2px 0 var(--green-deep),          /* borde inferior pronunciado */
-      0 6px 32px var(--shadow-g),
-      0 1px 0 rgba(255,255,255,.8) inset; /* brillo superior */
-    border:1.5px solid rgba(26,77,46,.25);
-  }
-
-  /* Barra superior verde (igual al card del afiche) */
-  .poem-card-header{
-    background:var(--green-deep);
-    padding:10px 22px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-
-  .card-header-label{
-    font-family:var(--f-ui);font-weight:700;
-    font-size:9px;letter-spacing:3px;text-transform:uppercase;
-    color:rgba(255,255,255,.8);
-  }
-
-  .card-header-stars{
-    font-size:11px;color:rgba(255,255,255,.45);letter-spacing:4px;
-  }
-
-  /* Contenido del poema */
-  .poem-card-body{
-    padding:26px 26px 24px;
-    position:relative;
-  }
-
-  /* Ornamento esquinas interiores */
-  .poem-card-body::before{
-    content:'';
-    position:absolute;top:8px;left:8px;
-    width:18px;height:18px;
-    border-top:1.5px solid rgba(26,77,46,.25);
-    border-left:1.5px solid rgba(26,77,46,.25);
-  }
-
-  .poem-card-body::after{
-    content:'';
-    position:absolute;bottom:8px;right:8px;
-    width:18px;height:18px;
-    border-bottom:1.5px solid rgba(26,77,46,.25);
-    border-right:1.5px solid rgba(26,77,46,.25);
-  }
-
-  /* Título poema */
-  .poem-title{
-    font-family:var(--f-display);
-    font-size:clamp(20px,5.8vw,26px);
-    font-weight:700;
-    font-style:italic;
-    color:var(--green-deep);
-    line-height:1.2;
-    margin-bottom:4px;
-  }
-
-  /* Autor */
-  .poem-author{
-    font-family:var(--f-ui);
-    font-size:10.5px;font-weight:400;
-    letter-spacing:2.5px;text-transform:uppercase;
-    color:var(--bark-light);
-    margin-bottom:20px;
-  }
-
-  /* Divisor ❧ ornamental */
-  .orn-divider{
-    display:flex;align-items:center;gap:8px;
-    margin-bottom:18px;
-  }
-  .orn-divider::before,.orn-divider::after{
-    content:'';flex:1;height:1px;
-    background:linear-gradient(to right,rgba(58,170,78,.4),transparent);
-  }
-  .orn-divider::after{
-    background:linear-gradient(to left,rgba(58,170,78,.4),transparent);
-  }
-  .orn-symbol{
-    font-size:16px;color:var(--green-bright);
-    filter:drop-shadow(0 1px 2px rgba(26,77,46,.15));
-  }
-
-  /* Cuerpo del poema */
-  .poem-text{
-    font-family:var(--f-poem);
-    font-size:clamp(18.5px,5.2vw,22px);
-    font-weight:300;font-style:italic;
-    line-height:1.95;color:#2b1e0f;
-    letter-spacing:.2px;white-space:pre-line;
-  }
-
-  .poem-year{
-    margin-top:18px;text-align:right;
-    font-family:var(--f-ui);font-size:10px;font-weight:300;
-    letter-spacing:2px;color:var(--bark-light);opacity:.5;
-  }
-
-  /* ================================================================
-     ANIMACIONES POEMA
-  ================================================================ */
-  @keyframes poemIn{
-    from{opacity:0;transform:translateY(22px) scale(.99);}
-    to  {opacity:1;transform:translateY(0) scale(1);}
-  }
-  @keyframes poemOut{
-    from{opacity:1;transform:translateY(0);}
-    to  {opacity:0;transform:translateY(-16px);}
-  }
+  .header-stripe{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green-deep) 0%,var(--green-deep) 38%,#f2c200 38%,#f2c200 52%,var(--green-bright) 52%,var(--green-bright) 100%);}
+  .floral-accent{width:100%;height:28px;position:relative;display:flex;align-items:center;justify-content:center;margin:22px 0 0;gap:0;overflow:visible;}
+  .floral-accent::before,.floral-accent::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(26,77,46,.35));}
+  .floral-accent::after{background:linear-gradient(to left,transparent,rgba(26,77,46,.35));}
+  .floral-center{font-size:20px;color:var(--green-bright);padding:0 10px;line-height:1;filter:drop-shadow(0 1px 2px rgba(26,77,46,.2));}
+  .poem-wrap{width:100%;padding:0 18px;}
+  .poem-card{width:100%;background:var(--white-card);border-radius:2px;position:relative;overflow:hidden;box-shadow:0 2px 0 var(--green-deep),0 6px 32px var(--shadow-g),0 1px 0 rgba(255,255,255,.8) inset;border:1.5px solid rgba(26,77,46,.25);}
+  .poem-card-header{background:var(--green-deep);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;}
+  .card-header-label{font-family:var(--f-ui);font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.8);}
+  .card-header-stars{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:4px;}
+  .poem-card-body{padding:26px 26px 24px;position:relative;}
+  .poem-card-body::before{content:'';position:absolute;top:8px;left:8px;width:18px;height:18px;border-top:1.5px solid rgba(26,77,46,.25);border-left:1.5px solid rgba(26,77,46,.25);}
+  .poem-card-body::after{content:'';position:absolute;bottom:8px;right:8px;width:18px;height:18px;border-bottom:1.5px solid rgba(26,77,46,.25);border-right:1.5px solid rgba(26,77,46,.25);}
+  .poem-title{font-family:var(--f-display);font-size:clamp(20px,5.8vw,26px);font-weight:700;font-style:italic;color:var(--green-deep);line-height:1.2;margin-bottom:4px;}
+  .poem-author{font-family:var(--f-ui);font-size:10.5px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--bark-light);margin-bottom:20px;}
+  .orn-divider{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+  .orn-divider::before,.orn-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(58,170,78,.4),transparent);}
+  .orn-divider::after{background:linear-gradient(to left,rgba(58,170,78,.4),transparent);}
+  .orn-symbol{font-size:16px;color:var(--green-bright);filter:drop-shadow(0 1px 2px rgba(26,77,46,.15));}
+  .poem-text{font-family:var(--f-poem);font-size:clamp(18.5px,5.2vw,22px);font-weight:300;font-style:italic;line-height:1.95;color:#2b1e0f;letter-spacing:.2px;white-space:pre-line;}
+  .poem-year{margin-top:18px;text-align:right;font-family:var(--f-ui);font-size:10px;font-weight:300;letter-spacing:2px;color:var(--bark-light);opacity:.5;}
+  @keyframes poemIn{from{opacity:0;transform:translateY(22px) scale(.99);}to{opacity:1;transform:translateY(0) scale(1);}}
+  @keyframes poemOut{from{opacity:1;transform:translateY(0);}to{opacity:0;transform:translateY(-16px);}}
   .poem-card.entering{animation:poemIn .7s cubic-bezier(.22,1,.36,1) forwards;}
-  .poem-card.exiting {animation:poemOut .35s ease-in forwards;}
-
-  /* ================================================================
-     BOTÓN
-  ================================================================ */
-  .btn-section{
-    padding:0 18px;
-    width:100%;margin-top:20px;
-    display:flex;flex-direction:column;align-items:center;gap:12px;
-  }
-
-  .btn-next{
-    width:100%;
-    padding:0;border:none;cursor:pointer;
-    background:transparent;
-    -webkit-tap-highlight-color:transparent;
-    position:relative;
-  }
-
-  /* Simula el estilo de botón del afiche: fondo verde oscuro, texto blanco */
-  .btn-inner{
-    background:var(--green-deep);
-    border-radius:2px;
-    padding:16px 24px;
-    display:flex;align-items:center;justify-content:center;gap:12px;
-    transition:background .25s,transform .15s,box-shadow .25s;
-    box-shadow:
-      0 3px 0 var(--green-text),
-      0 6px 22px rgba(26,77,46,.3);
-    position:relative;overflow:hidden;
-  }
-
-  /* Brillo hover */
-  .btn-inner::before{
-    content:'';
-    position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 60%);
-    opacity:0;transition:opacity .3s;
-  }
-
-  .btn-next:hover .btn-inner{
-    background:var(--green-mid);
-    box-shadow:0 3px 0 var(--green-text),0 8px 28px rgba(26,77,46,.38);
-  }
+  .poem-card.exiting{animation:poemOut .35s ease-in forwards;}
+  .btn-section{padding:0 18px;width:100%;margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .btn-next{width:100%;padding:0;border:none;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent;position:relative;}
+  .btn-inner{background:var(--green-deep);border-radius:2px;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:12px;transition:background .25s,transform .15s,box-shadow .25s;box-shadow:0 3px 0 var(--green-text),0 6px 22px rgba(26,77,46,.3);position:relative;overflow:hidden;}
+  .btn-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 60%);opacity:0;transition:opacity .3s;}
+  .btn-next:hover .btn-inner{background:var(--green-mid);box-shadow:0 3px 0 var(--green-text),0 8px 28px rgba(26,77,46,.38);}
   .btn-next:hover .btn-inner::before{opacity:1;}
-  .btn-next:active .btn-inner{
-    transform:translateY(2px);
-    box-shadow:0 1px 0 var(--green-text),0 2px 10px rgba(26,77,46,.25);
-    background:var(--green-bright);
-  }
-
-  .btn-label{
-    font-family:var(--f-ui);font-weight:700;
-    font-size:11px;letter-spacing:3.5px;text-transform:uppercase;
-    color:#fff;
-  }
-
-  .btn-leaf{
-    font-size:16px;color:rgba(255,255,255,.7);
-    transition:transform .4s;display:inline-block;
-  }
+  .btn-next:active .btn-inner{transform:translateY(2px);box-shadow:0 1px 0 var(--green-text),0 2px 10px rgba(26,77,46,.25);background:var(--green-bright);}
+  .btn-label{font-family:var(--f-ui);font-weight:700;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:#fff;}
+  .btn-leaf{font-size:16px;color:rgba(255,255,255,.7);transition:transform .4s;display:inline-block;}
   .btn-next:active .btn-leaf{transform:rotate(180deg);}
-
-  .poem-counter{
-    font-family:var(--f-ui);font-size:10px;font-weight:300;
-    letter-spacing:1.5px;color:var(--bark-light);opacity:.5;
-  }
-
-  /* ================================================================
-     PIE DE PÁGINA
-  ================================================================ */
-  footer{
-    width:100%;margin-top:36px;padding:0 18px 0;
-  }
-
-  .footer-inner{
-    border-top:2px solid var(--green-deep);
-    padding-top:20px;
-    text-align:center;
-  }
-
-  /* Miniaturas logos abajo (línea decorativa estilo FET) */
-  .footer-brand{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    margin-bottom:10px;
-  }
-
-  .footer-fet-badge{
-    background:var(--green-deep);
-    color:#fff;
-    font-family:var(--f-ui);font-weight:900;font-size:13px;letter-spacing:-1px;
-    padding:3px 8px;border-radius:1px;
-  }
-
-  .footer-event-name{
-    font-family:var(--f-script);
-    font-size:22px;color:var(--green-bright);line-height:1;
-  }
-
-  .footer-meta{
-    font-family:var(--f-ui);font-size:9px;font-weight:400;
-    letter-spacing:2.5px;text-transform:uppercase;
-    color:var(--green-deep);opacity:.45;margin-top:4px;
-  }
-
-  .footer-quote{
-    margin-top:10px;
-    font-family:var(--f-poem);font-size:13px;font-style:italic;font-weight:300;
-    color:var(--bark);opacity:.6;line-height:1.65;
-  }
-
-  /* ================================================================
-     FRANJA TRICOLOR FIJA (pie de pantalla)
-  ================================================================ */
-  .page-stripe{
-    position:fixed;bottom:0;left:0;right:0;height:5px;z-index:100;
-    background:linear-gradient(90deg,
-      #1a4d2e 0%,#1a4d2e 38%,
-      #f2c200 38%,#f2c200 52%,
-      #3aaa4e 52%,#3aaa4e 100%);
-  }
-
-  /* ================================================================
-     RESPONSIVE
-  ================================================================ */
-  @media(max-width:360px){
-    .t-banquete{font-size:56px;}
-    .t-poesia  {font-size:48px;}
-    .poem-card-body{padding:22px 18px 20px;}
-    .poem-text{font-size:17px;}
-  }
-  @media(min-width:600px){
-    .t-banquete{font-size:90px;}
-    .t-poesia  {font-size:78px;}
-  }
+  .poem-counter{font-family:var(--f-ui);font-size:10px;font-weight:300;letter-spacing:1.5px;color:var(--bark-light);opacity:.5;}
+  footer{width:100%;margin-top:36px;padding:0 18px 0;}
+  .footer-inner{border-top:2px solid var(--green-deep);padding-top:20px;text-align:center;}
+  .footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;}
+  .footer-fet-badge{background:var(--green-deep);color:#fff;font-family:var(--f-ui);font-weight:900;font-size:13px;letter-spacing:-1px;padding:3px 8px;border-radius:1px;}
+  .footer-event-name{font-family:var(--f-script);font-size:22px;color:var(--green-bright);line-height:1;}
+  .footer-meta{font-family:var(--f-ui);font-size:9px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--green-deep);opacity:.45;margin-top:4px;}
+  .footer-quote{margin-top:10px;font-family:var(--f-poem);font-size:13px;font-style:italic;font-weight:300;color:var(--bark);opacity:.6;line-height:1.65;}
+  .page-stripe{position:fixed;bottom:0;left:0;right:0;height:5px;z-index:100;background:linear-gradient(90deg,#1a4d2e 0%,#1a4d2e 38%,#f2c200 38%,#f2c200 52%,#3aaa4e 52%,#3aaa4e 100%);}
+  @media(max-width:360px){.t-banquete{font-size:56px;}.t-poesia{font-size:48px;}.poem-card-body{padding:22px 18px 20px;}.poem-text{font-size:17px;}}
+  @media(min-width:600px){.t-banquete{font-size:90px;}.t-poesia{font-size:78px;}}
   </style>
 </head>
 <body>
-
 <canvas id="particles" aria-hidden="true"></canvas>
-
 <main class="page" role="main">
-
-  <!-- ══════════════════════════════════════
-       CABECERA
-  ══════════════════════════════════════ -->
   <header>
-
-    <!-- Logo FET -->
     <div class="fet-logo" role="img" aria-label="Fundación Escuela Tecnológica de Neiva">
-      <div class="fet-box">
-        <span class="fet-mono">FET</span>
-      </div>
+      <div class="fet-box"><span class="fet-mono">FET</span></div>
       <div class="fet-text">
         <strong>Fundación Escuela<br>Tecnológica de Neiva</strong>
         <small>Jesús Oviedo Pérez</small>
       </div>
     </div>
-
-    <!-- Bloque de título — réplica del afiche -->
     <div class="title-block">
-
-      <!-- Ícono libro (SVG idéntico al del afiche) -->
-      <svg class="book-icon" viewBox="0 0 60 60" fill="none"
-           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- Páginas abiertas del libro -->
-        <path d="M30 48 C30 48 8 42 6 18 L30 12 L30 48Z"
-              fill="#3aaa4e" opacity=".85"/>
-        <path d="M30 48 C30 48 52 42 54 18 L30 12 L30 48Z"
-              fill="#1a4d2e" opacity=".9"/>
-        <!-- Líneas de texto en páginas -->
+      <svg class="book-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 48 C30 48 8 42 6 18 L30 12 L30 48Z" fill="#3aaa4e" opacity=".85"/>
+        <path d="M30 48 C30 48 52 42 54 18 L30 12 L30 48Z" fill="#1a4d2e" opacity=".9"/>
         <line x1="14" y1="26" x2="27" y2="24" stroke="white" stroke-width="1.2" opacity=".5"/>
         <line x1="13" y1="31" x2="26" y2="29" stroke="white" stroke-width="1.2" opacity=".4"/>
         <line x1="14" y1="36" x2="27" y2="34" stroke="white" stroke-width="1.2" opacity=".35"/>
         <line x1="33" y1="24" x2="46" y2="26" stroke="white" stroke-width="1.2" opacity=".4"/>
         <line x1="34" y1="29" x2="47" y2="31" stroke="white" stroke-width="1.2" opacity=".35"/>
-        <!-- Lomo central -->
         <line x1="30" y1="12" x2="30" y2="48" stroke="#f2ead8" stroke-width="1.5" opacity=".7"/>
-        <!-- Marcapáginas -->
-        <path d="M38 10 L42 10 L42 22 L40 20 L38 22 Z"
-              fill="#f2c200" opacity=".9"/>
+        <path d="M38 10 L42 10 L42 22 L40 20 L38 22 Z" fill="#f2c200" opacity=".9"/>
       </svg>
-
       <span class="t-banquete">Banquete</span>
       <span class="t-dela">de la</span>
       <span class="t-poesia">Poesía</span>
     </div>
-
-    <!-- Subtítulo -->
     <div class="subtitle-block">
       <span class="t-celebremos">Celebremos el</span>
       <span class="t-dia">Día del Idioma</span>
     </div>
-
-    <!-- Descripción -->
-    <p class="event-desc">
-      La FET te invita a participar de la <strong>Tercera versión del
-      evento que reúne a poetas, académicos y comunidad en general</strong>
-    </p>
-
+    <p class="event-desc">La FET te invita a participar de la <strong>Tercera versión del evento que reúne a poetas, académicos y comunidad en general</strong></p>
     <div class="header-stripe" aria-hidden="true"></div>
   </header>
 
-  <!-- Divisor floral -->
   <div class="floral-accent" aria-hidden="true">
     <span class="floral-center">❧ ✦ ❧</span>
   </div>
 
-  <!-- ══════════════════════════════════════
-       TARJETA POEMA
-  ══════════════════════════════════════ -->
   <div class="poem-wrap">
-    <article class="poem-card entering" id="poemCard"
-             aria-live="polite" aria-atomic="true">
-
+    <article class="poem-card entering" id="poemCard" aria-live="polite" aria-atomic="true">
       <div class="poem-card-header">
         <span class="card-header-label">✦ Selección aleatoria</span>
         <span class="card-header-stars">✦ ✦ ✦</span>
       </div>
-
       <div class="poem-card-body">
         <h2 class="poem-title"  id="poemTitle"></h2>
         <p  class="poem-author" id="poemAuthor"></p>
-        <div class="orn-divider" aria-hidden="true">
-          <span class="orn-symbol">❧</span>
-        </div>
+        <div class="orn-divider" aria-hidden="true"><span class="orn-symbol">❧</span></div>
         <p  class="poem-text"   id="poemText"></p>
         <p  class="poem-year"   id="poemYear"></p>
       </div>
-
     </article>
   </div>
 
-  <!-- ══════════════════════════════════════
-       BOTÓN
-  ══════════════════════════════════════ -->
   <div class="btn-section">
-    <button class="btn-next" id="btnNext"
-            aria-label="Mostrar otro poema aleatorio">
+    <button class="btn-next" id="btnNext" aria-label="Mostrar otro poema aleatorio">
       <div class="btn-inner">
         <span class="btn-leaf" aria-hidden="true">❧</span>
         <span class="btn-label">Leer otro poema</span>
@@ -707,9 +167,6 @@
     <span class="poem-counter" id="poemCounter" aria-live="polite"></span>
   </div>
 
-  <!-- ══════════════════════════════════════
-       PIE
-  ══════════════════════════════════════ -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
@@ -717,66 +174,136 @@
         <span class="footer-event-name">Banquete de la Poesía</span>
       </div>
       <p class="footer-meta">Neiva, Huila · Tercera Edición · 24 de Abril</p>
-      <p class="footer-quote">
-        "La poesía es el idioma secreto<br>de quienes tienen mucho que decir."
-      </p>
+      <p class="footer-quote">"La poesía es el idioma secreto<br>de quienes tienen mucho que decir."</p>
     </div>
   </footer>
-
 </main>
-
-<!-- Franja fija tricolor -->
 <div class="page-stripe" aria-hidden="true"></div>
 
-<!-- ════════════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════════════ -->
 <script>
-/* ─── POEMAS ─────────────────────────────────────── */
 const POEMS = [
   {
-    title:"Rima XXI", author:"Gustavo Adolfo Bécquer", year:"España, 1871",
-    text:"¿Qué es poesía?, dices mientras clavas\nen mi pupila tu pupila azul.\n¡Qué es poesía! ¿Y tú me lo preguntas?\nPoesía... eres tú."
+    title: "La vida",
+    author: "Santiago Hernández Plaza",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "La vida es un reloj que nunca se detiene,\nun viaje de luz, de oscuridad y pena.\nEs risa que nace, es llanto que viene,\nes un sueño que vuela, y un amor que nos encadena.\n\nEs una estrella fugaz en la noche oscura,\nes el canto de una hermosa mañana.\nEs lucha, es dolor, es fuerza que empuja,\nes barco sin miedo que en tempestad surca.\n\nNo pide permiso, no espera, no calla,\nse lleva las horas, las huellas, las alas.\nPero en cada instante, en cada herida,\nsiempre una esperanza, una luz encendida.\n\nVívela con calma, con pasión con ganas,\nque es corta y es larga, que es dulce y amarga.\nPorque al fin del camino, cuando todo acaba,\nsolo serás un recuerdo que pasa."
   },
   {
-    title:"Puedo escribir", author:"Pablo Neruda", year:"Chile, 1924",
-    text:"Puedo escribir los versos más tristes esta noche.\nEscribo, por ejemplo: «La noche está estrellada,\ny tiritan, azules, los astros, a lo lejos.»\nEl viento de la noche gira en el cielo y canta.\nPuedo escribir los versos más tristes esta noche."
+    title: "La vida es un susurro",
+    author: "Nicolas Diaz Soto",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "La vida es un susurro de dulce amanecer,\nun canto en la tormenta, un fuego por nacer.\nEs río que se esconde, más vuelve a florecer,\ny un sueño que en la sombra no deja de crecer.\n\nA veces trae espinas que hieren sin piedad,\ny otras nos da su abrazo, tan lleno de bondad.\nMas todo es un espejo de nuestra voluntad,\npues somos quien elige su propia realidad.\n\nPor eso sigue andando, no mires hacia atrás,\nque el tiempo es un viajero que nunca vuelve más.\nLa vida es un instante de luz y de verdad,\ny en cada nuevo día renace la oportunidad.\n\nSi sufres, no te rindas, aún brilla el fulgor,\npues siempre tras la noche amanece el color.\nLos sueños son semillas que brotan con ardor,\ny el alma es un jardín regado con amor."
   },
   {
-    title:"Cultivo una rosa blanca", author:"José Martí", year:"Cuba, 1891",
-    text:"Cultivo una rosa blanca\nen julio como en enero,\npara el amigo sincero\nque me da su mano franca.\n\nY para el cruel que me arranca\nel corazón con que vivo,\ncardo ni ortiga cultivo:\ncultivo la rosa blanca."
+    title: "La vida",
+    author: "Oscar Botero Yagüe",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "La vida es un niño que corre descalzo,\nque ríe, que llora, que vuelve a empezar.\nA veces se esconde, se asoma despacio,\nnos toma la mano, nos invita a soñar.\n\nLa vida es un viento que empuja y abraza,\nun cielo que cambia de azul a gris.\nNos llena de historias, nos dice: «confía»,\ny en cada tropiezo nos deja seguir.\n\nLa vida es un beso, es luz en la sombra,\nes todo lo bueno que aún llegará.\nNos pide que amemos, que sigamos vivos,\ny no nos quedemos mirando hacia atrás."
   },
   {
-    title:"Sonatina", author:"Rubén Darío", year:"Nicaragua, 1893",
-    text:"La princesa está triste... ¿qué tendrá la princesa?\nLos suspiros se escapan de su boca de fresa,\nque ha perdido la risa, que ha perdido el color.\nLa princesa está pálida en su silla de oro."
+    title: "El libro de la vida",
+    author: "Mariajose Ramirez Gonzalez",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "En un rincón, perdido en el tiempo,\nduerme un libro de páginas doradas,\ndonde el destino escribe encantado\nsus letras de historias soñadas.\n\nTenemos héroes que vencen el miedo\ncon tinta de luz y esperanza,\npero también villanos que dañan\ncon penas que quedan en huellas\nque nos hieren el alma.\n\nAsí sigue la vida escribiendo,\nsin pausas, sin miedos.\nNo temas las hojas gastadas,\npues todas están hechizadas.\n\nCon risas, con llantos, con voces calladas,\ncon sueños que esperan ser despertadas."
   },
   {
-    title:"Me gustas cuando callas", author:"Pablo Neruda", year:"Chile, 1924",
-    text:"Me gustas cuando callas porque estás como ausente,\ny me oyes desde lejos, y mi voz no te toca.\nParece que los ojos se te hubieran volado\ny parece que un beso te cerrara la boca."
+    title: "En la trama de la vida",
+    author: "Juan Sebastián Briñez Contreras",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "En la trama de la vida, tejemos historias,\ncon risas que suenan y también con memorias.\nCada día es un regalo, un nuevo despertar,\ndonde el sol nos sonríe, listo para brillar.\n\nA veces el camino se torna complicado,\ny en las noches oscuras nos sentimos perdidos,\npero en cada tropiezo hay fuerza escondida,\nun susurro que dice: «no te rindas».\n\nLa vida es un abrazo en momentos sencillos,\nuna charla con amigos, compartiendo brillos,\nes el aroma del café en una mañana fría,\ny las carcajadas que llenan la melodía.\n\nAprendemos a amar con cada cicatriz,\ny aunque haya dolor, también hay matiz.\nLas lágrimas son parte de este viaje humano,\npero tras cada tormenta, siempre sale el verano."
   },
   {
-    title:"Hombre pequeñito", author:"Alfonsina Storni", year:"Argentina, 1919",
-    text:"Hombre pequeñito, hombre pequeñito,\nsuelta a tu canario que quiere volar...\nYo soy el canario, hombre pequeñito,\ndéjame saltar.\n\nEstuve en tu jaula, hombre pequeñito,\nhombre pequeñito que jaula me das.\nDigo pequeñito porque no me entiendes,\nni me entenderás."
+    title: "La vida es llama",
+    author: "Juan Sebastián Bahamón Gil",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "La vida es llama que en sombras sabe arder,\nun juego entre la risa, el llanto y el saber.\nEs puente entre lo eterno y el frágil corazón,\nun arte que se escribe con duda y con pasión.\n\nNos guía entre la niebla con faros de ilusión,\ny a veces nos derrumba sin dar explicación.\nPero en cada caída renace la virtud,\npues todo lo vivido nos viste de actitud.\n\nLa vida no se espera, se toma sin temor,\nse bebe como un vino de amargo resplandor.\nEs lucha y es abrazo, batalla y es canción,\nun pulso que nos llama a ser transformación.\n\nY cuando ya el camino nos lleve al porvenir,\nque quede en nuestra huella el canto de vivir.\nQue digan que soñamos con fuerza y sin error,\nque dimos toda el alma, con fuego y con amor."
   },
   {
-    title:"Caminante son tus huellas", author:"Antonio Machado", year:"España, 1912",
-    text:"Caminante, son tus huellas\nel camino y nada más;\ncaminante, no hay camino,\nse hace camino al andar.\n\nAl andar se hace el camino,\ny al volver la vista atrás\nse ve la senda que nunca\nse ha de volver a pisar."
+    title: "Poesía de la FET",
+    author: "Nicolás A. Chica",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Entre libros y sueños, caminan callados,\nojos brillantes, corazones ansiosos,\nla universidad es su mundo, su reino encantado,\ndonde aprenden a volar, a ser audaces, poderosos.\n\nTiemblan con dudas, pero nunca se rinden,\ncon cada caída, una lección se siembra,\nel esfuerzo los lleva donde los vientos los guíen,\ny el futuro les espera, en la cima de la senda.\n\nSon el reflejo de un mundo que cambia,\nportadores de esperanza, de voces unidas,\ncon sus risas y temores, en sus manos la llama,\nserán los que transformen las vidas perdidas."
   },
   {
-    title:"Versos Sencillos I", author:"José Martí", year:"Cuba, 1891",
-    text:"Yo soy un hombre sincero\nde donde crece la palma,\ny antes de morirme quiero\nechar mis versos del alma.\n\nCon los pobres de la tierra\nquiero yo mi suerte echar:\nel arroyo de la sierra\nme complace más que el mar."
+    title: "FET",
+    author: "Sergio Andrés Neira Ibarra",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Entre Rivera, bajo el sol ardiente,\nse alza la FET, verde y floreciente,\nbosque de ingenio, de mente y creación,\ndonde el software es noble pasión.\n\nSus aulas, refugios de ciencia y verdor,\ndonde el algoritmo brota con vigor,\ny entre ramas de lógica y razón,\nnace el futuro en cada programación.\n\nAquí no solo se escriben líneas,\nse tejen sueños, se forjan rutas,\ncon bits y funciones, con arte y empeño,\nla FET construye su propio diseño.\n\n¡Oh, alma mater de código y tierra,\ndonde el saber como un río se encierra!\nEres el puente entre el hombre y la máquina,\nen tu verde reino, la técnica ilumina."
   },
   {
-    title:"Amor constante", author:"Francisco de Quevedo", year:"España, c.1645",
-    text:"Cerrar podrá mis ojos la postrera\nsombra que me llevare el blanco día,\ny podrá desatar esta alma mía\nhora, a su afán ansioso lisonjera."
+    title: "Caminando y aprendiendo",
+    author: "Paula Santamaría",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Camino entre pasillos, entre risas y charlas,\nel viento me envuelve, las hojas me abrazan,\nlas sombras de un árbol me ofrecen su abrigo,\naquí me detengo, aquí yo respiro.\n\nLos libros abiertos, las voces en la cafetería,\nel río llevando preguntas perdidas.\nSi no deja huella, si no mueve el alma,\n¿realmente vale la pena esta jornada?\n\nAquí compartimos café y teorías,\ndejamos preguntas en cada salida.\nPorque aprender también es un acto de vida.\n\nLas noches son largas, los días fugaces,\nentre sueños de tinta y planes que nacen.\nBuscamos respuestas, abrimos caminos,\ncon libros, con dudas, con buenos amigos."
   },
   {
-    title:"Amor", author:"Gabriela Mistral", year:"Chile, 1922",
-    text:"Eres la raíz febril,\nel tallo, la flor y el fruto.\nEres todas las estaciones\ncabalgando sobre mi pulso.\n\nEres el viento del sur\nque dobla mis sienes de junco.\nY eres el frío del norte,\nque endurece mi cuerpo mudo."
+    title: "Estudiantes de FET",
+    author: "Brayan Alexander Torres Puentes",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "En los pasillos de la FET, resuena el eco fiel,\nde sueños que se forjan, de un futuro que se ve.\nMentes curiosas, inquietas, llenas de pasión,\ncaminan con paso firme, buscando la razón.\n\nCada aula es un universo, un campo por explorar,\ndonde el conocimiento crece, donde se aprende a pensar.\nEntre libros y sonrisas, entre desafíos y más,\nse construyen los cimientos de lo que vendrá.\n\nFET, alma de estudiantes, cuna de ideales,\ndonde cada paso cuenta, donde todo es posible.\nEl esfuerzo es bandera, el trabajo es la luz,\nen cada uno de ustedes, hay un futuro en cruz.\n\nSon faros que iluminan, con su esfuerzo y valor,\nguiando con su ejemplo, sembrando amor y honor.\nDe la FET salen fuerzas, que al mundo cambiarán,\nestudiantes, futuros líderes, que mañana abrazarán."
+  },
+  {
+    title: "En la FET forjan sueños",
+    author: "Juan Sebastián Ruiz Montealegre",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "En la FET forjan sueños, pasión y saber,\ncon esfuerzo y constancia, listos para crecer.\nCada aula es un mundo, un reto, un destino,\ndonde el futuro se escribe con cada camino.\n\nLas noches de estudio, el café compañero,\nproyectos y metas que al fin ven su rumbo.\nCon libros en mano y el espíritu ardiente,\nconstruyen su historia, transforman su vida.\n\nNo hay obstáculo grande, no hay miedo invencible,\ncon ganas y entrega, todo es posible.\nQue el éxito alcance a quien nunca se rinde,\npues el que persiste, su meta consigue."
+  },
+  {
+    title: "La educación nos despierta",
+    author: "Santiago Andrés Muñoz Rincón",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Educación nos despierta,\nabre el mundo al corazón,\nes la luz que nos orienta,\ny nos llena de razón.\n\nEs la llama que no muere,\nvoz que invita a imaginar,\ncon esfuerzo todo puede,\ny nos impulsa a soñar.\n\nNo hay camino más brillante\nque el saber con libertad,\nquien aprende va adelante\ny construye humanidad."
+  },
+  {
+    title: "Tus ojos, dos luceros",
+    author: "Brayan Felipe Cardozo Torrecillas",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Tus ojos, dos luceros que guían mi camino,\nen ellos encuentro paz, refugio y destino.\nCada mirada tuya es un susurro del viento,\nque acaricia mi alma, que me lleva al intento.\n\nTu voz es la melodía que calma mis miedos,\nen cada palabra siento la fuerza de los cielos.\nComo un río sereno, tu amor me envuelve,\ny en su corriente, mis dudas desaparecen.\n\nA tu lado, el tiempo se vuelve eterno,\ncada segundo se convierte en un invierno\nde caricias suaves, de promesas calladas,\nde los sueños compartidos, de nuestras almas entrelazadas.\n\nY así, bajo el cielo de tus ojos, vivo,\nen este amor que es mi verdad y mi abrigo.\nNo hay más deseo que este amor inmenso,\nque crece, que se expande, que es todo mi universo."
+  },
+  {
+    title: "En el eco suave",
+    author: "Kevin Villa",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "En el eco suave de un silencio eterno,\ndos almas se encuentran, destellos en la penumbra,\nun amor que trasciende, en lo profundo del tiempo,\ncada latido un susurro, cada mirada, un regreso.\n\nBailan sombras en la brisa, susurros de promesas,\nlas estrellas son testigos, en noches infinitas,\ncaminos entrelazados, destinos compartidos,\nel lazo del cariño, forjado en el olvido.\n\nY aunque la muerte sea muro que se erige,\nel amor perdura, como fuego en el ocaso,\nrenaciendo en cada lágrima, en cada sonrisa,\nte amo en esta vida, y más allá, en el hallazgo."
+  },
+  {
+    title: "Eres el sol de mis mañanas",
+    author: "Esteban Marmolejo",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Eres el sol de mis mañanas,\nel verso dulce en mi poema,\nla melodía que me acompaña,\ny la paz que en mi alma sueña.\n\nTus ojos son dos luceros,\nque alumbran mi oscuridad,\ntus labios, besos sinceros,\nque calman mi soledad.\n\nComo el rio al mar se entrega,\nyo me pierdo en tu calor,\ny en tu risa que me lleva\nal más puro amor.\n\nEres el sueño que no termina,\nla esperanza que no se apaga,\nel destino que me ilumina,\ny el amor que nunca se acaba."
+  },
+  {
+    title: "El amor es algo lindo",
+    author: "Carlos Santiago Rojas Salas",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "El amor es algo lindo,\nque se siente sin pensar,\nte hace sonreír solito\ny el corazón te hace saltar.\n\nPuede estar en la familia,\nen amigos de verdad,\ntambién en una mirada\nque te llena de bondad.\n\nNo todo siempre es perfecto,\na veces se puede ir,\npero si el amor es fuerte\nsiempre va a resistir.\n\nEl amor cuida y respeta,\nno hace daño, da calor,\nes pequeño y es enorme,\ny se vive con valor."
+  },
+  {
+    title: "Tu risa es sol",
+    author: "Alejandro Bautista Méndez",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Tu risa es sol que al amanecer\ndeshace sombras de mi ayer,\nun canto fresco de placer\nque hace el mundo renacer.\n\nTu sonrisa es mi sol, mi guía y mi luz,\ntu amor es mi refugio, mi paz y mi cruz.\nCon mi peor y mi mejor historia,\nconozco este camino de memoria.\n\nVuelvo, quiero creer que estoy volviendo,\nmi corazón late con amor verdadero.\nComo río hacia el mar tu voz,\ncorre en mi sangre sin temor,\nllevando en cada gota, amor,\nla esencia de tu dulce ardor."
+  },
+  {
+    title: "El amor como la primavera",
+    author: "Jonathan Andrés Rengifo",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "El amor es como la primavera floreciente,\ncuando comienza es todo sonriente.\nPero cuando termina vuelve otoño,\ndonde el alma es atrapada por un vano moño.\n\nEl sol ya no brilla, se oculta en el horizonte,\ny la flor que antes era luz, se vuelve monte.\nLos días de alegría se desvanecen lejos,\ny en el aire queda el eco de nuestros viejos.\n\nEl tiempo lo consume, lo borra el silencio,\ny en el alma persiste un dolor tan intenso.\nEl amor se va, dejando su huella callada,\ny el corazón, en sombras, se siente atrapado.\n\nEl amor se aleja, como un río que se esconde,\ny en su curso nos deja lo que el alma responde.\nQueda el eco en la mente, susurrando su ausencia,\ny el corazón llora en su más grande presencia."
+  },
+  {
+    title: "Otro día de octubre",
+    author: "Paula Santamaría",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Aún sigo atada a ese caótico y eterno octubre,\ndel que solo quedan retazos de un sueño confuso,\nsombras que me visitan cuando en mi alma las busco,\ny un nudo en la garganta que, al pensarte, no cubre.\n\nProfundas lagunas que desdibujan frases sueltas,\ny gestos que ignoré al cerrar mis ojos en cada beso.\nLagunas vacías, donde solo me encuentro ilesa,\nsi evito el eco de su perfume regresando en exceso.\n\nUn aroma extinto que nadie más percibe,\npero en mi ropa aún vive, me envuelve y persiste.\nComo si el recuerdo tuviera manos ocultas,\nque rozan mi piel en las horas más tristes.\n\nTal vez una pizca de él aún habita en mí;\nen mis malas costumbres y mis mentiras piadosas,\nen sueños que vuelven a ese jugo de mora,\ny al sabor a café después del dulce en su boca."
+  },
+  {
+    title: "Dense el derecho de dudar",
+    author: "Paula Santamaría",
+    year: "Estudiantes FET - Banquete de la poesía",
+    text: "Dense el derecho de dudar,\nescuché una vez en clase, al azar.\nY aunque sonó tan simple, tan pequeño,\nesa idea se aferró a mi pecho.\n\nY entonces vi —en lo que siempre estuvo quieto—\npequeñas grietas, hilos tensos,\nun temblor creciendo en silencio.\nMe incomodó. Quise huir.\n\nPero algo me llamaba,\nuna rendija de luz en la estructura cerrada.\nNo supe qué buscaba, solo miraba.\nSolo temblaba. Pensé en mí, ¡me conocí al fin!\n\nCrecí dudando, deshilando certezas\ncomo si fuesen nudos antiguos.\nY supe —sin tener palabras para ello—\nque quien se atreve a no entender,\ncomienza, al fin, a comprender.\n\nEducarse, entonces, no es repetir, ni llenar vacíos.\nEs caminar con la herida abierta de lo desconocido.\nEs abrazar la duda como quien ama\nla única puerta real\nhacia lo propio, hacia lo libre, hacia lo vivo."
   }
 ];
 
-/* ─── ESTADO ─────────────────────────────────────── */
 let cur = -1, busy = false;
 
 function rnd(x){
@@ -812,25 +339,18 @@ function show(animate){
   },360);
 }
 
-/* ─── PARTÍCULAS ─────────────────────────────────── */
+/* Partículas */
 (function(){
   const cv=document.getElementById('particles');
   const cx=cv.getContext('2d');
   let W,H,pts;
   const SYM=['✦','✧','❧','❀','✿','♣','·'];
-  const COL=[
-    'rgba(58,170,78,.14)','rgba(26,77,46,.09)',
-    'rgba(192,144,40,.11)','rgba(58,170,78,.08)'
-  ];
+  const COL=['rgba(58,170,78,.14)','rgba(26,77,46,.09)','rgba(192,144,40,.11)','rgba(58,170,78,.08)'];
   const mk=()=>({
-    x:Math.random()*W, y:H+20,
-    s:Math.random()*11+5,
-    sym:SYM[Math.random()*SYM.length|0],
-    col:COL[Math.random()*COL.length|0],
-    sp:Math.random()*.3+.07,
-    dr:(Math.random()-.5)*.28,
-    rot:Math.random()*360,
-    rs:(Math.random()-.5)*.35
+    x:Math.random()*W,y:H+20,s:Math.random()*11+5,
+    sym:SYM[Math.random()*SYM.length|0],col:COL[Math.random()*COL.length|0],
+    sp:Math.random()*.3+.07,dr:(Math.random()-.5)*.28,
+    rot:Math.random()*360,rs:(Math.random()-.5)*.35
   });
   const resize=()=>{ W=cv.width=innerWidth; H=cv.height=innerHeight; };
   resize();
@@ -849,16 +369,8 @@ function show(animate){
   addEventListener('resize',resize);
 })();
 
-/* ─── INIT ───────────────────────────────────────── */
 show(false);
 document.getElementById('btnNext').addEventListener('click',()=>show(true));
-
-/* Swipe arriba = siguiente */
-let ty=0;
-addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
-addEventListener('touchend',e=>{
-  if(ty-e.changedTouches[0].clientY>65) show(true);
-},{passive:true});
 </script>
 </body>
 </html>
